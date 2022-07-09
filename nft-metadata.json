@@ -1,0 +1,16 @@
+{
+    "attributes": [
+      {
+        "trait_type": "Wheels",
+        "value": "Black"
+      },
+      {
+        "trait_type": "Motor",
+        "value": "Thp 1.6"
+      }
+    ],
+    "description": "The world's beautiful car ever made by humans.",
+    "image": "ipfs://QmfSZih27gafyRYEHy46CQcRmJVHKonkDjNETh29xNzjJE",
+    "name": "mini"
+  }
+  
