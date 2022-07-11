@@ -2,12 +2,12 @@ require("dotenv").config();
 const API_URL = process.env.API_URL;
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const CONTRACT = process.env.CONTRACT;
+const CONTRACT = process.env.CONTRACT20;
 
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
-const contract = require("../artifacts/contracts/Mustache.sol/MyNFT.json");
+const contract = require("../artifacts/contracts/Mustache20.sol/MiniNFT.json");
 const contractAddress = CONTRACT;
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
@@ -19,8 +19,8 @@ async function mintNFT(tokenURI) {
     from: PUBLIC_KEY,
     to: contractAddress,
     nonce: nonce,
-    gas: 500000,
-    data: nftContract.methods.mintNFT(PUBLIC_KEY, tokenURI).encodeABI(),
+    gas: 5000000,
+    data: nftContract.methods.mintInLoopNFT(PUBLIC_KEY, tokenURI).encodeABI(),
   };
 
   const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY);

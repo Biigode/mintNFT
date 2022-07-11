@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile":"npx hardhat compile",
+    "deploy": "npx hardhat --network rinkeby run scripts/deploy.js",
+    "deploy20": "npx hardhat --network rinkeby run scripts/deploy20.js",
+    "mint":"node ./scripts/mint-nft.js",
+    "mint20":"node ./scripts/mint-nft-20.js"
   },
   "keywords": [],
   "author": "",
