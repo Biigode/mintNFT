@@ -1,5 +1,6 @@
 const axios = require("axios");
-
+require("dotenv").config();
+const AUTHORIZATION = process.env.AUTHORIZATION;
 const retriveNFTByWallet = async () => {
   try {
     const requestParams = {
@@ -13,7 +14,7 @@ const retriveNFTByWallet = async () => {
       },
       headers: {
         "Content-Type": "application/json",
-        Authorization: "28d01458-a7e6-4bae-a447-0248282ff7cc",
+        Authorization: AUTHORIZATION,
       },
     };
 
@@ -32,7 +33,7 @@ const retriveNFTByContract = async () => {
       params: { chain: "ethereum", page_size: "10", include: "metadata" },
       headers: {
         "Content-Type": "application/json",
-        Authorization: "28d01458-a7e6-4bae-a447-0248282ff7cc",
+        Authorization: AUTHORIZATION,
       },
     };
 
@@ -43,5 +44,5 @@ const retriveNFTByContract = async () => {
   }
 };
 
-// retriveNFTByWallet();
+retriveNFTByWallet();
 retriveNFTByContract();

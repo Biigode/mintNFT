@@ -1,6 +1,9 @@
 const axios = require("axios");
 const FormData = require("form-data");
 const fs = require("fs");
+require("dotenv").config();
+const AUTHORIZATION = process.env.AUTHORIZATION;
+
 
 const form = new FormData();
 const fileStream = fs.createReadStream(
@@ -15,13 +18,13 @@ const uploadToIPFS = async () => {
       url: "https://api.nftport.xyz/v0/files",
       body: form,
       headers: {
-        Authorization: "28d01458-a7e6-4bae-a447-0248282ff7cc",
+        Authorization: AUTHORIZATION,
         "Content-Type": "multipart/form-data",
       },
     };
     const response = await axios.post(requestParams.url, form, {
       headers: {
-        Authorization: "28d01458-a7e6-4bae-a447-0248282ff7cc",
+        Authorization: AUTHORIZATION,
         "Content-Type": "multipart/form-data",
       },
     });
