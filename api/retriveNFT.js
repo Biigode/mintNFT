@@ -29,8 +29,8 @@ const retriveNFTByContract = async () => {
   try {
     const requestParams = {
       method: "GET",
-      url: "https://api.nftport.xyz/v0/nfts/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
-      params: { chain: "ethereum", page_size: "10", include: "metadata" },
+      url: "https://api.nftport.xyz/v0/nfts/0xc9136243110c61f4b3d97c6f266f02e2e6bce13c",
+      params: { chain: "rinkeby", page_size: "10", include: "metadata" },
       headers: {
         "Content-Type": "application/json",
         Authorization: AUTHORIZATION,
@@ -44,5 +44,5 @@ const retriveNFTByContract = async () => {
   }
 };
 
-retriveNFTByWallet();
+// retriveNFTByWallet();
 retriveNFTByContract();
