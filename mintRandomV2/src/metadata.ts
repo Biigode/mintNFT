@@ -1,8 +1,7 @@
 import fs from "fs";
 import Moralis from "moralis/node";
-// import { saveToDb } from "./filesystem";
 
-import { description, baseImageUri }  from "../input/config";
+import { baseImageUri, description } from "../input/config";
 
 // write metadata locally to json files
 export const writeMetaData = (metadataList: Array<any>) => {
@@ -48,13 +47,6 @@ export const uploadMetadata = async (
     ).slice(-64);
     let filename = i.toString() + ".json";
 
-    let filetype = "base64";
-    // imageDataArray[
-    //   i
-    // ].filePath = `https://ipfs.moralis.io:2053/ipfs/${imageCID}/images/${paddedHex}.png`;
-    //imageDataArray[i].image_file = res.data[i].content;saveToDb
-
-    // do something else here after firstFunction completes
     let nftMetadata = generateMetadata(
       imageDataArray[i].newDna,
       imageDataArray[i].editionCount,
@@ -91,28 +83,6 @@ export const uploadMetadata = async (
     );
   }
   writeMetaData(metadataList);
-  // once all promises back then save to IPFS and Moralis database
-  // Promise.all(promiseArray).then(() => {
-  //   axios
-  //     .post(apiUrl, ipfsArray, {
-  //       maxContentLength: Infinity,
-  //       maxBodyLength: Infinity,
-  //       headers: {
-  //         "X-API-Key": xAPIKey,
-  //         "content-type": "application/json",
-  //         accept: "application/json",
-  //       },
-  //     })
-  //     .then((res) => {
-  //       let metaCID = res.data[0].path.split("/")[4];
-  //       console.log("META FILE PATHS:", res.data);
-  //       saveToDb(metaCID, imageCID, editionSize);
-  //       writeMetaData(metadataList);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // });
 };
 
 // compile metadata (reads output folder images)
@@ -145,34 +115,4 @@ export const compileMetadata = async (
     );
   }
   uploadMetadata(editionSize, imageDataArray);
-  // once all promises then upload IPFS object metadata array
-  // Promise.all(promiseArray).then(() => {
-  //   axios
-  //     .post(apiUrl, ipfsArray, {
-  //       maxContentLength: Infinity,
-  //       maxBodyLength: Infinity,
-  //       headers: {
-  //         "X-API-Key": xAPIKey,
-  //         "content-type": "application/json",
-  //         accept: "application/json",
-  //       },
-  //     })
-  //     .then((res) => {
-  //       console.log("IMAGE FILE PATHS:", res.data);
-  //       let imageCID = res.data[0].path.split("/")[4];
-  //       console.log("IMAGE CID:", imageCID);
-  //       // pass folder CID to meta data
-  //       uploadMetadata(apiUrl, xAPIKey, imageCID, editionSize, imageDataArray);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // });
 };
-
-// module.exports = {
-//   generateMetadata,
-//   writeMetaData,
-//   uploadMetadata,
-//   compileMetadata,
-// };

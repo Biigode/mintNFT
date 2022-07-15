@@ -1,10 +1,3 @@
-// import dependencies
-// import dotenv = require("dotenv");
-// dotenv.config(); // setup dotenv
-
-// utilise Moralis
-// const Moralis = require("moralis/node");
-
 // canvas for image compile
 import { createCanvas } from "canvas";
 
@@ -27,17 +20,6 @@ import { createFile } from "./src/filesystem";
 // setup canvas
 const canvas = createCanvas(width, height);
 const ctx = canvas.getContext("2d");
-
-// Moralis creds
-// const serverUrl = process.env.SERVER_URL;
-// const appId = process.env.APP_ID;
-// const masterKey = process.env.MASTER_KEY;
-// const apiUrl = "";
-// xAPIKey available here: https://deep-index.moralis.io/api-docs/#/storage/uploadFolder
-// const apiKey = "";
-
-// Start Moralis session
-// Moralis.start({ serverUrl, appId, masterKey });
 
 // Create generative art by using the canvas api
 const startCreating = async () => {

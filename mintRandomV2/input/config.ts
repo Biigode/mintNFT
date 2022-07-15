@@ -2,7 +2,7 @@
  * UTILITY FUNCTIONS
  * - scroll to BEGIN COLLECTION CONFIG to provide the config values
  ******************************************************************/
-const fs = require("fs");
+import fs from "fs";
 const dir = __dirname;
 
 // adds a rarity to the configuration. This is expected to correspond with a directory containing the rarity for each defined layer
