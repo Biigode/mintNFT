@@ -16,6 +16,7 @@ import { compileMetadata } from "./src/metadata";
 
 // import for saving files
 import { createFile } from "./src/filesystem";
+import { createDnaListByRarity } from "./src/rarity";
 
 // setup canvas
 const canvas = createCanvas(width, height);
@@ -34,6 +35,8 @@ const startCreating = async () => {
   // create NFTs from startEditionFrom to editionSize
   let editionCount = startEditionFrom;
 
+  const dnaListByRarity = createDnaListByRarity(rarityWeights);
+
   while (editionCount <= editionSize) {
     console.log("-----------------");
     console.log("Creating %d of %d", editionCount, editionSize);
@@ -49,8 +52,23 @@ const startCreating = async () => {
         editionCount,
         editionSize,
         rarityWeights,
-        imageDataArray
+        imageDataArray,
+        dnaListByRarity
       );
+
+      // const returnedData = await createFile(
+      //   canvas,
+      //   ctx,
+      //   layers,
+      //   width,
+      //   height,
+      //   editionCount,
+      //   editionSize,
+      //   rarityWeights,
+      //   imageDataArray,
+      //   dnaListByRarity
+      // );
+      // imageDataArray.push(returnedData);
     };
 
     await handleFinal();

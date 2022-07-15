@@ -9,13 +9,14 @@ import { drawBackground, drawElement, loadLayerImg, signImage } from "./canvas";
 import { constructLayerToDna, createUniqueDna } from "./dna";
 
 // import rarity
-import { createDnaListByRarity, getRarity } from "./rarity";
+import { getRarity } from "./rarity";
 
 const constructLoadedElements = (
   layers: Array<any>,
   editionCount: number,
   editionSize: number,
-  rarityWeights: any
+  rarityWeights: any,
+  dnaListByRarity: Array<any>
 ) => {
   interface IDna {
     loadedElements: Array<any>;
@@ -27,15 +28,14 @@ const constructLoadedElements = (
   };
 
   // holds which dna has already been used during generation and prepares dnaList object
-  const dnaListByRarity = createDnaListByRarity(rarityWeights);
+  // const dnaListByRarity = createDnaListByRarity(rarityWeights);
 
   // get rarity from to config to create NFT as
   let rarity = getRarity(editionCount, editionSize);
-  console.log(dnaListByRarity);
   // create unique Dna
   dna.newDna = createUniqueDna(layers, rarity, rarityWeights, dnaListByRarity);
   dnaListByRarity[rarity].push(dna.newDna);
-  console.log(dnaListByRarity[rarity]);
+  console.log(dnaListByRarity);
 
   // propagate information about required layer contained within config into a mapping object
   // = prepare for drawing
@@ -59,13 +59,15 @@ export const createFile = async (
   editionCount: number,
   editionSize: number,
   rarityWeights: Array<any>,
-  imageDataArray: Array<any>
+  imageDataArray: Array<any>,
+  dnaListByRarity: Array<any>
 ) => {
   const dna = constructLoadedElements(
     layers,
     editionCount,
     editionSize,
-    rarityWeights
+    rarityWeights,
+    dnaListByRarity
   );
 
   let attributesList: Array<any> = [];

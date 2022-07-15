@@ -131,16 +131,17 @@ export const baseImageUri = "YOUR_MORALIS_SERVER_URL";
 // id for edition to start from
 export const startEditionFrom = 1;
 // amount of NFTs to generate in edition
-export const editionSize = 10;
+export const editionSize = 20;
 // prefix to add to edition dna ids (to distinguish dna counts from different generation processes for the same collection)
 export const editionDnaPrefix = 0;
 
 // create required weights
 // for each weight, call 'addRarity' with the id and from which to which element this rarity should be applied
 export let rarityWeights = [
-  addRarity("super_rare", 1, 1),
-  addRarity("rare", 1, 1),
-  addRarity("original", 1, 8),   //editionSize
+  // addRarity("super_rare", 1, 1),
+  // addRarity("rare", 1, 1),
+  // addRarity("original", 1, 1), //editionSize
+  addRarity("ultra", 1, 20),
 ];
 
 // create required layers
