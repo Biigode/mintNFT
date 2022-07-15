@@ -10,7 +10,7 @@ const dir = __dirname;
 // @param _from - number in the edition to start this rarity from
 // @param _to - number in the edition to generate this rarity to
 // @return a rarity object used to dynamically generate the NFTs
-const addRarity = (_id, _from, _to) => {
+const addRarity = (_id: string, _from: number, _to: number) => {
   const _rarityWeight = {
     value: _id,
     from: _from,
@@ -21,17 +21,17 @@ const addRarity = (_id, _from, _to) => {
 };
 
 // get the name without last 4 characters -> slice .png from the name
-const cleanName = (_str) => {
+const cleanName = (_str: string) => {
   let name = _str.slice(0, -4);
   return name;
 };
 
 // reads the filenames of a given folder and returns it with its name and path
-const getElements = (_path, _elementCount) => {
+const getElements = (_path: string, _elementCount?: any) => {
   return fs
     .readdirSync(_path)
-    .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item))
-    .map((i) => {
+    .filter((item: string) => !/(^|\/)\.[^\/\.]/g.test(item))
+    .map((i: string) => {
       return {
         id: _elementCount,
         name: cleanName(i),
@@ -46,7 +46,7 @@ const getElements = (_path, _elementCount) => {
 // @param _position - on which x/y value to render this part
 // @param _size - of the image
 // @return a layer object used to dynamically generate the NFTs
-const addLayer = (_id, _position, _size) => {
+export const addLayer = (_id: any, _position?: any, _size?: any) => {
   if (!_id) {
     console.log("error adding layer, parameters id required");
     return null;
@@ -60,14 +60,14 @@ const addLayer = (_id, _position, _size) => {
   // add two different dimension for elements:
   // - all elements with their path information
   // - only the ids mapped to their rarity
-  let elements = [];
+  let elements: any[] = [];
   let elementCount = 0;
-  let elementIdsForRarity = {};
-  rarityWeights.forEach((rarityWeight) => {
+  let elementIdsForRarity: any = {};
+  rarityWeights.forEach((rarityWeight: any) => {
     let elementsForRarity = getElements(`${dir}/${_id}/${rarityWeight.value}`);
 
     elementIdsForRarity[rarityWeight.value] = [];
-    elementsForRarity.forEach((_elementForRarity) => {
+    elementsForRarity.forEach((_elementForRarity: any) => {
       _elementForRarity.id = `${editionDnaPrefix}${elementCount}`;
       elements.push(_elementForRarity);
       elementIdsForRarity[rarityWeight.value].push(_elementForRarity.id);
@@ -90,9 +90,13 @@ const addLayer = (_id, _position, _size) => {
 // @param _rarityId - the id of the rarity to specifiy
 // @param _layerId - the id of the layer to specifiy
 // @param _percentages - an object defining the rarities and the percentage with which a given rarity for this layer should be used
-const addRarityPercentForLayer = (_rarityId, _layerId, _percentages) => {
+const addRarityPercentForLayer = (
+  _rarityId: any,
+  _layerId: any,
+  _percentages: any
+) => {
   let _rarityFound = false;
-  rarityWeights.forEach((_rarityWeight) => {
+  rarityWeights.forEach((_rarityWeight: any) => {
     if (_rarityWeight.value === _rarityId) {
       let _percentArray = [];
       for (let percentType in _percentages) {
@@ -117,34 +121,34 @@ const addRarityPercentForLayer = (_rarityId, _layerId, _percentages) => {
  *************************************************************/
 
 // image width in pixels
-const width = 1000;
+export const width = 1000;
 // image height in pixels
-const height = 1000;
+export const height = 1000;
 // description for NFT in metadata file
-const description = "Moralis Mutants - Survivors of Rekt City";
+export const description = "Moralis Mutants - Survivors of Rekt City";
 // base url in case no unique metadata file i.e IPFS
-const baseImageUri = "YOUR_MORALIS_SERVER_URL";
+export const baseImageUri = "YOUR_MORALIS_SERVER_URL";
 // id for edition to start from
-const startEditionFrom = 1;
+export const startEditionFrom = 1;
 // amount of NFTs to generate in edition
-const editionSize = 10;
+export const editionSize = 10;
 // prefix to add to edition dna ids (to distinguish dna counts from different generation processes for the same collection)
-const editionDnaPrefix = 0;
+export const editionDnaPrefix = 0;
 
 // create required weights
 // for each weight, call 'addRarity' with the id and from which to which element this rarity should be applied
-let rarityWeights = [
+export let rarityWeights = [
   /* 
-  addRarity("super_rare", 1, 1),
-  addRarity("rare", 1, 1),
-  */
+   addRarity("super_rare", 1, 1),
+   addRarity("rare", 1, 1),
+   */
   addRarity("original", 1, editionSize),
 ];
 
 // create required layers
 // for each layer, call 'addLayer' with the id and optionally the positioning and size
 // the id would be the name of the folder in your input directory, e.g. 'ball' for ./input/ball
-const layers = [
+export const layers = [
   addLayer("Background", { x: 0, y: 0 }, { width: width, height: height }),
   addLayer("Base Torso"),
   addLayer("Base Head"),
@@ -163,14 +167,3 @@ addRarityPercentForLayer("original", "Eyes", {
   rare: 0,
   original: 100,
 });
-
-module.exports = {
-  layers,
-  width,
-  height,
-  description,
-  baseImageUri,
-  editionSize,
-  startEditionFrom,
-  rarityWeights,
-};

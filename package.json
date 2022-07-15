@@ -12,7 +12,8 @@
     "mint20": "node ./scripts/mint-nft-20.js",
     "retriveNFT": "node ./api/retriveNFT.js",
     "uploadIPFS": "node ./api/uploadImageToIPFS.js",
-    "generateRandonNFT": "node ./mintRandom/index.js"
+    "generateRandonNFT": "node ./mintRandom/index.js",
+    "generateRandonNFTv2": "tsnd --transpile-only --respawn --ignore-watch node_modules ./mintRandomV2/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "@nomiclabs/hardhat-ethers": "^2.0.6",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/request": "^2.48.8",
     "ethers": "^5.0.0",
     "hardhat": "^2.9.7"
   },

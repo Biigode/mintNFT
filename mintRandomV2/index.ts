@@ -1,28 +1,28 @@
 // import dependencies
-const dotenv = require("dotenv");
-dotenv.config(); // setup dotenv
+// import dotenv = require("dotenv");
+// dotenv.config(); // setup dotenv
 
 // utilise Moralis
 // const Moralis = require("moralis/node");
 
 // canvas for image compile
-const { createCanvas } = require("canvas");
+import { createCanvas } from "canvas";
 
 // import config
-const {
-  layers,
-  width,
-  height,
+import {
   editionSize,
-  startEditionFrom,
+  height,
+  layers,
   rarityWeights,
-} = require("./input/config.js");
+  startEditionFrom,
+  width,
+} from "./input/config";
 
 // import metadata
-const { compileMetadata } = require("./src/metadata");
+import { compileMetadata } from "./src/metadata";
 
 // import for saving files
-const { createFile } = require("./src/filesystem");
+import { createFile } from "./src/filesystem";
 
 // setup canvas
 const canvas = createCanvas(width, height);
@@ -32,9 +32,9 @@ const ctx = canvas.getContext("2d");
 // const serverUrl = process.env.SERVER_URL;
 // const appId = process.env.APP_ID;
 // const masterKey = process.env.MASTER_KEY;
-const apiUrl = process.env.API_URL || "";
+// const apiUrl = "";
 // xAPIKey available here: https://deep-index.moralis.io/api-docs/#/storage/uploadFolder
-const apiKey = process.env.API_KEY || "";
+// const apiKey = "";
 
 // Start Moralis session
 // Moralis.start({ serverUrl, appId, masterKey });
@@ -47,7 +47,7 @@ const startCreating = async () => {
   console.log("##################");
 
   // image data collection
-  let imageDataArray = [];
+  let imageDataArray: Array<any> = [];
 
   // create NFTs from startEditionFrom to editionSize
   let editionCount = startEditionFrom;
@@ -76,13 +76,7 @@ const startCreating = async () => {
     editionCount++;
   }
 
-  await compileMetadata(
-    apiUrl,
-    apiKey,
-    editionCount,
-    editionSize,
-    imageDataArray
-  );
+  await compileMetadata(editionCount, editionSize, imageDataArray);
 
   console.log();
   console.log("#########################################");

@@ -1,3 +1,4 @@
 .env
 node_modules
 mintRandom/src/output/**
+mintRandomV2/src/output/**
