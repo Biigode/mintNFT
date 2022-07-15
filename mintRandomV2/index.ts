@@ -23,10 +23,10 @@ const ctx = canvas.getContext("2d");
 
 // Create generative art by using the canvas api
 const startCreating = async () => {
-  console.log("##################");
-  console.log("# Generative Art #");
-  console.log("# - Generating your NFT collection");
-  console.log("##################");
+  console.log("########################################");
+  console.log("#         Generative Art               #");
+  console.log("# -  Generating your NFT collection  - #");
+  console.log("########################################");
 
   // image data collection
   let imageDataArray: Array<any> = [];

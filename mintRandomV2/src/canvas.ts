@@ -5,7 +5,7 @@ export const signImage = (ctx: CanvasRenderingContext2D, sig: string) => {
   ctx.font = "bold 30pt Helvetica";
   ctx.textBaseline = "top";
   ctx.textAlign = "left";
-  ctx.fillText(sig, 40, 40);
+  ctx.fillText(`${sig} bees`, 40, 40);
 };
 
 // generate a random color hue
