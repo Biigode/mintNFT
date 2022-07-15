@@ -13,7 +13,8 @@
     "retriveNFT": "node ./api/retriveNFT.js",
     "uploadIPFS": "node ./api/uploadImageToIPFS.js",
     "generateRandonNFT": "node ./mintRandom/index.js",
-    "generateRandonNFTv2": "tsnd --transpile-only --ignore-watch node_modules ./mintRandomV2/index.ts"
+    "generateRandonNFTv2": "tsnd --transpile-only --ignore-watch node_modules ./mintRandomV2/index.ts",
+    "generateBeesNFT": "tsnd --transpile-only --ignore-watch node_modules ./mintBEES/index.ts"
   },
   "keywords": [],
   "author": "",

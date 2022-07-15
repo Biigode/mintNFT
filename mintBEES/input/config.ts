@@ -125,7 +125,7 @@ export const width = 1000;
 // image height in pixels
 export const height = 1000;
 // description for NFT in metadata file
-export const description = "Moralis Mutants - Survivors of Rekt City";
+export const description = "Bess Mutants - Survivors of BudWeiser";
 // base url in case no unique metadata file i.e IPFS
 export const baseImageUri = "YOUR_MORALIS_SERVER_URL";
 // id for edition to start from
@@ -138,26 +138,21 @@ export const editionDnaPrefix = 0;
 // create required weights
 // for each weight, call 'addRarity' with the id and from which to which element this rarity should be applied
 export let rarityWeights = [
-  /* 
-   addRarity("super_rare", 1, 1),
-   addRarity("rare", 1, 1),
-   */
-  addRarity("original", 1, editionSize),
+  addRarity("super_rare", 1, 1),
+  addRarity("rare", 1, 1),
+  addRarity("original", 1, 8),   //editionSize
 ];
 
 // create required layers
 // for each layer, call 'addLayer' with the id and optionally the positioning and size
 // the id would be the name of the folder in your input directory, e.g. 'ball' for ./input/ball
 export const layers = [
-  addLayer("Background", { x: 0, y: 0 }, { width: width, height: height }),
-  addLayer("Base Torso"),
-  addLayer("Base Head"),
-  addLayer("Torso"),
-  addLayer("Arms"),
-  addLayer("Mouths"),
-  addLayer("Eyes"),
-  addLayer("Accessories"),
-  addLayer("Noses"),
+  addLayer("background", { x: 0, y: 0 }, { width: width, height: height }),
+  addLayer("fundo"),
+  addLayer("corpo"),
+  addLayer("asa"),
+  addLayer("olhos"),
+  addLayer("orelha"),
 ];
 
 // provide any specific percentages that are required for a given layer and rarity level

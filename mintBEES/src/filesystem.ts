@@ -31,10 +31,11 @@ const constructLoadedElements = (
 
   // get rarity from to config to create NFT as
   let rarity = getRarity(editionCount, editionSize);
-
+  console.log(dnaListByRarity);
   // create unique Dna
   dna.newDna = createUniqueDna(layers, rarity, rarityWeights, dnaListByRarity);
   dnaListByRarity[rarity].push(dna.newDna);
+  console.log(dnaListByRarity[rarity]);
 
   // propagate information about required layer contained within config into a mapping object
   // = prepare for drawing
