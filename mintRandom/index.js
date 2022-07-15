@@ -1,10 +1,9 @@
 // import dependencies
-const console = require("console");
 const dotenv = require("dotenv");
 dotenv.config(); // setup dotenv
 
 // utilise Moralis
-const Moralis = require("moralis/node");
+// const Moralis = require("moralis/node");
 
 // canvas for image compile
 const { createCanvas } = require("canvas");
