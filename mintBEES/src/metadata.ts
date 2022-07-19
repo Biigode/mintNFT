@@ -30,7 +30,7 @@ export const generateMetadata = (
 };
 
 // upload metadata
-export const uploadMetadata = async (
+export const saveMetadata = async (
   editionSize: number,
   imageDataArray: Array<any>
 ) => {

@@ -12,7 +12,7 @@ import {
 } from "./input/config";
 
 // import metadata
-import { uploadMetadata } from "./src/metadata";
+import { saveMetadata } from "./src/metadata";
 
 // import for saving files
 import { createFile } from "./src/filesystem";
@@ -35,6 +35,7 @@ const startCreating = async () => {
   // create NFTs from startEditionFrom to editionSize
   let editionCount = startEditionFrom;
 
+  // list to store all dna's
   const dnaListByRarity = createDnaListByRarity(rarityWeights);
 
   while (editionCount <= editionSize) {
@@ -62,7 +63,7 @@ const startCreating = async () => {
     editionCount++;
   }
 
-  await uploadMetadata(editionSize, imageDataArray);
+  await saveMetadata(editionSize, imageDataArray);
 
   console.log("##########################################");
   console.log("#  Welcome to Bess City - Meet All Bees  #");

@@ -96,7 +96,7 @@ export const createFile = async (
   let filename = editionCount.toString() + ".png";
 
   // save locally as file
-  fs.writeFileSync(`${__dirname}/output/${filename}`, canvas.toBuffer()); //canvas.toBuffer(filetype)
+  fs.writeFileSync(`${__dirname}/output/${filename}`, canvas.toBuffer());
   console.log(`Created #${editionCount.toString()}`);
 
   imageDataArray[editionCount] = {
