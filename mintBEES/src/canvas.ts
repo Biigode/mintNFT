@@ -11,8 +11,7 @@ export const signImage = (ctx: CanvasRenderingContext2D, sig: string) => {
 // generate a random color hue
 export const genColor = () => {
   let hue = Math.floor(Math.random() * 360);
-  let pastel = `hsl(${hue}, 100%, 85%)`;
-  return pastel;
+  return `hsl(${hue}, 100%, 85%)`;
 };
 
 export const drawBackground = (

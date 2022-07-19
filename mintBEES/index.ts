@@ -12,7 +12,7 @@ import {
 } from "./input/config";
 
 // import metadata
-import { compileMetadata } from "./src/metadata";
+import { uploadMetadata } from "./src/metadata";
 
 // import for saving files
 import { createFile } from "./src/filesystem";
@@ -62,13 +62,11 @@ const startCreating = async () => {
     editionCount++;
   }
 
-  await compileMetadata(editionCount, editionSize, imageDataArray);
+  await uploadMetadata(editionSize, imageDataArray);
 
-  console.log();
-  console.log("#########################################");
-  console.log("Welcome to Bess City - Meet All Bees");
-  console.log("#########################################");
-  console.log();
+  console.log("##########################################");
+  console.log("#  Welcome to Bess City - Meet All Bees  #");
+  console.log("##########################################");
 };
 
 // Initiate code

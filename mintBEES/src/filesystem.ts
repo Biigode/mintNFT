@@ -93,11 +93,7 @@ export const createFile = async (
     // write the image to the output directory
   });
 
-  const base64ImgData = canvas.toBuffer();
-  // const base64 = base64ImgData.toString("base64");
-
   let filename = editionCount.toString() + ".png";
-  // let filetype = "image/png";
 
   // save locally as file
   fs.writeFileSync(`${__dirname}/output/${filename}`, canvas.toBuffer()); //canvas.toBuffer(filetype)
