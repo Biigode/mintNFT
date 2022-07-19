@@ -55,20 +55,6 @@ const startCreating = async () => {
         imageDataArray,
         dnaListByRarity
       );
-
-      // const returnedData = await createFile(
-      //   canvas,
-      //   ctx,
-      //   layers,
-      //   width,
-      //   height,
-      //   editionCount,
-      //   editionSize,
-      //   rarityWeights,
-      //   imageDataArray,
-      //   dnaListByRarity
-      // );
-      // imageDataArray.push(returnedData);
     };
 
     await handleFinal();

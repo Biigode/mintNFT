@@ -127,7 +127,7 @@ export const height = 1000;
 // description for NFT in metadata file
 export const description = "Bess Mutants - Survivors of BudWeiser";
 // base url in case no unique metadata file i.e IPFS
-export const baseImageUri = "YOUR_MORALIS_SERVER_URL";
+export const baseImageUri = "batatinhas";
 // id for edition to start from
 export const startEditionFrom = 1;
 // amount of NFTs to generate in edition
@@ -140,7 +140,7 @@ export const editionDnaPrefix = 0;
 export let rarityWeights = [
   // addRarity("super_rare", 1, 1),
   // addRarity("rare", 1, 1),
-  // addRarity("original", 1, 1), //editionSize
+  // addRarity("original", 1, 2), //editionSize
   addRarity("ultra", 1, 20),
 ];
 
