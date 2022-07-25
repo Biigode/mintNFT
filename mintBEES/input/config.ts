@@ -125,7 +125,7 @@ export const width = 1000;
 // image height in pixels
 export const height = 1000;
 // description for NFT in metadata file
-export const description = "Bess Mutants - Survivors of BudWeiser";
+export const description = "Bees Mutants - Survivors of BudWeiser";
 // base url in case no unique metadata file i.e IPFS
 export const baseImageUri = "batatinhas";
 // id for edition to start from
@@ -138,10 +138,10 @@ export const editionDnaPrefix = 0;
 // create required weights
 // for each weight, call 'addRarity' with the id and from which to which element this rarity should be applied
 export let rarityWeights = [
-  // addRarity("super_rare", 1, 1),
-  // addRarity("rare", 1, 1),
+  addRarity("super_rare", 1, 1),
+  addRarity("rare", 1, 1),
   // addRarity("original", 1, 2), //editionSize
-  addRarity("ultra", 1, 20),
+  addRarity("ultra", 1, 18),
 ];
 
 // create required layers
