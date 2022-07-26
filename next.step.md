@@ -7,3 +7,6 @@ frameworks
 rabbitMQ
 express
 cron timer
+
+
+docker run -d --hostname rabitmq --name rabitmq rabbitmq:3
