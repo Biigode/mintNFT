@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import multer, { diskStorage } from "multer";
+import { produce } from "./functions/rabbitMQ";
 import { nftContract, nftWallet } from "./functions/retriveNFT";
 
 const storage = diskStorage({
@@ -23,8 +24,9 @@ router
   .get((req: Request, res: Response) => nftContract(req, res));
 router
   .route("/nft-upload")
-  .post(upload.single("file"), (req: Request, res: Response) =>
-    res.json({ up: "done" }).send()
-  );
+  .post(upload.single("file"), async (req: Request, res: Response) => {
+    await produce();
+    res.json({ up: "done" }).send();
+  });
 
 export default router;
