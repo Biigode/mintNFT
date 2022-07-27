@@ -10,3 +10,7 @@ cron timer
 
 
 docker run -d --hostname rabitmq --name rabitmq rabbitmq:3
+
+
+service worker
+circut braker design pattern
