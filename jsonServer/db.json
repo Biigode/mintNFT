@@ -1,0 +1,25 @@
+{
+  "manageCampaigns": [
+    {
+      "id": 1,
+      "launchDate": "To be defined",
+      "brand": "Bud light",
+      "campaign": "Buds 4 life",
+      "status": "Open"
+    },
+    {
+      "id": 2,
+      "launchDate": "10/23/2022",
+      "brand": "Budweiser",
+      "campaign": "Budweiser Legends",
+      "status": "In progress"
+    },
+    {
+      "id": 3,
+      "launchDate": "10/23/2022",
+      "brand": "Budweiser",
+      "campaign": "Budweiser 4 Legends",
+      "status": "Closed"
+    }
+  ]
+}
