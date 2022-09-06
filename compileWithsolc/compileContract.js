@@ -2,7 +2,7 @@ const fs = require("fs");
 const solc = require("solc");
 const path = require("path");
 
-const contractPath = path.join(__dirname, "..", "contracts/Mustache.sol");
+const contractPath = path.join(__dirname, "..", "contracts/MyMustache.sol");
 const nodeModulesPath = path.join(__dirname, "..", "node_modules/");
 const sources = {};
 const paths = [];
@@ -114,10 +114,13 @@ const init = () => {
   console.log(contract.contracts);
 
   const bytecode =
-    "0x" + contract.contracts[contractPath]["MyNFT"].evm.bytecode.object;
-  const abi = contract.contracts[contractPath]["MyNFT"].abi;
+    "0x" + contract.contracts[contractPath]["MyMustache"].evm.bytecode.object;
+  const abi = contract.contracts[contractPath]["MyMustache"].abi;
 
   const contractCompiled = {
+    _format: "hh-sol-artifact-1",
+    contractName: "MyMustache",
+    sourceName: "contracts/MyMustache.sol",
     abi: abi,
     bytecode: bytecode,
   };
@@ -134,6 +137,15 @@ const init = () => {
       }
     }
   );
+
+  fs.writeFile("compileContract1.json", JSON.stringify(contract), (err) => {
+    if (err) console.log(err);
+    else {
+      console.log("File written successfully\n");
+      console.log("The written has the following contents:");
+      // console.log(fs.readFileSync("compileContract.json", "utf8"));
+    }
+  });
 };
 
 init();
