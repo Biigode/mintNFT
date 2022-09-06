@@ -1,8 +1,6 @@
 const fs = require("fs");
 const solc = require("solc");
 const path = require("path");
-const smtchecker = require("solc/smtchecker");
-const smtsolver = require("solc/smtsolver");
 
 const contractPath = path.join(__dirname, "..", "contracts/Mustache.sol");
 const nodeModulesPath = path.join(__dirname, "..", "node_modules/");
@@ -76,13 +74,15 @@ function findImports(imports) {
 
   //my imported sources are stored under the node_modules folder!
   const source = pathsToImport.filter((relativeDependencie, index) => {
-    if (relativeDependencie.includes(currentImport)) {
+    const parsedInside = relativeDependencie.split("/");
+    const currentImportInside = parsedInside[parsedInside.length - 1];
+
+    if (currentImportInside === currentImport) {
       return relativeDependencie;
     }
   });
 
   const source3 = fs.readFileSync(source[0], "utf8");
-
   return { contents: source3 };
 }
 
@@ -98,10 +98,6 @@ const init = () => {
     language: "Solidity",
     sources: sources,
     settings: {
-      modelChecker: {
-        engine: "chc",
-        solvers: ["smtlib2"],
-      },
       outputSelection: {
         "*": {
           "*": ["*"],
@@ -111,18 +107,33 @@ const init = () => {
   };
 
   pathsToImport = [...new Set(paths)];
-  console.log(pathsToImport);
-  const output = solc.compile(JSON.stringify(input), { import: findImports });
-  const contract = JSON.parse(output);
-  console.log(contract);
+
+  let output = solc.compile(JSON.stringify(input), { import: findImports }, 1);
+
+  let contract = JSON.parse(output);
+  console.log(contract.contracts);
 
   const bytecode =
-    "0x" + contract.contracts[contractPath]["Base"].evm.bytecode.object;
-  const abi = contract.contracts[contractPath]["Base"].abi;
-  // return {
-  //   bytecode: bytecode,
-  //   abi: abi,
-  // };
+    "0x" + contract.contracts[contractPath]["MyNFT"].evm.bytecode.object;
+  const abi = contract.contracts[contractPath]["MyNFT"].abi;
+
+  const contractCompiled = {
+    abi: abi,
+    bytecode: bytecode,
+  };
+
+  fs.writeFile(
+    "compileContract.json",
+    JSON.stringify(contractCompiled),
+    (err) => {
+      if (err) console.log(err);
+      else {
+        console.log("File written successfully\n");
+        console.log("The written has the following contents:");
+        // console.log(fs.readFileSync("compileContract.json", "utf8"));
+      }
+    }
+  );
 };
 
 init();
