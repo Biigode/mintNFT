@@ -8,11 +8,8 @@ const contractPath = path.join(__dirname, "..", "contracts/Mustache.sol");
 const nodeModulesPath = path.join(__dirname, "..", "node_modules/");
 const sources = {};
 const paths = [];
-const alreadyImported = [];
+let pathsToImport = [];
 const readFile = (contractPath) => {
-  // sources[contractPath] = { content: fs.readFileSync(contractPath, "utf8") };
-
-  // console.log(sources[contractPath]);
   paths.push(contractPath);
   const fileReaded = fs.readFileSync(contractPath, "utf8");
   sources[contractPath] = { content: fileReaded };
@@ -58,10 +55,6 @@ const readOpenZeppelinDependencies = (PathToOpenZeppelinDependencie) => {
   readOpenZeppelinImports.map((fileDependencie) => {
     console.log("lendo => ", fileDependencie);
 
-    // const pathToCurrentFile = `${nodeModulesPath}${mountPathOfInternalDependencies(
-    //   PathToOpenZeppelinDependencie
-    // )}/${fileDependencie}`;
-
     const pathToCurrentFile = `${mountPathOfInternalDependencies(
       PathToOpenZeppelinDependencie
     )}/${fileDependencie}`;
@@ -76,29 +69,18 @@ const readOpenZeppelinDependencies = (PathToOpenZeppelinDependencie) => {
 
   console.log("\n");
 };
-const validateImport = (value) => {
-  return alreadyImported.indexOf(value) !== -1;
-};
-function findImports(imports) {
-  console.log("callback import", imports);
 
+function findImports(imports) {
   const parsed = imports.split("/");
   const currentImport = parsed[parsed.length - 1];
 
-  if (validateImport(currentImport)) {
-    console.log("#####################################");
-    console.log("valor ja existe", currentImport);
-    console.log("#####################################");
-    return { contents: "" };
-  }
-  alreadyImported.push(currentImport);
   //my imported sources are stored under the node_modules folder!
-  const source = paths.filter((relativeDependencie, index) => {
+  const source = pathsToImport.filter((relativeDependencie, index) => {
     if (relativeDependencie.includes(currentImport)) {
       return relativeDependencie;
     }
   });
-  console.log(source[0]);
+
   const source3 = fs.readFileSync(source[0], "utf8");
 
   return { contents: source3 };
@@ -128,8 +110,8 @@ const init = () => {
     },
   };
 
-  console.log(paths);
-
+  pathsToImport = [...new Set(paths)];
+  console.log(pathsToImport);
   const output = solc.compile(JSON.stringify(input), { import: findImports });
   const contract = JSON.parse(output);
   console.log(contract);

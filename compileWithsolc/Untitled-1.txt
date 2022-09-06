@@ -1,0 +1,89 @@
+{
+  errors: [
+    {
+      component: 'general',
+      errorCode: '2333',
+      formattedMessage: 'DeclarationError: Identifier already declared.\n' +
+        '  --> @openzeppelin/contracts/token/ERC721/ERC721.sol:12:1:\n' +
+        '   |\n' +
+        '12 | import "../../utils/introspection/ERC165.sol";\n' +
+        '   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n' +
+        'Note: The previous declaration is here:\n' +
+        '  --> @openzeppelin/contracts/utils/introspection/IERC165.sol:15:1:\n' +
+        '   |\n' +
+        '15 | interface IERC165 {\n' +
+        '   | ^ (Relevant source part starts here and spans across multiple lines).\n' +
+        '\n',
+      message: 'Identifier already declared.',
+      secondarySourceLocations: [Array],
+      severity: 'error',
+      sourceLocation: [Object],
+      type: 'DeclarationError'
+    }
+  ],
+  sources: {
+    '/home/victorf/projects/ABI-NFT/mintNFT/contracts/Mustache.sol': { id: 0 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/access/../utils/Context.sol': { id: 1 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/access/Ownable.sol': { id: 2 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/../../utils/Address.sol': { id: 3 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/../../utils/Context.sol': { id: 4 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/../../utils/Strings.sol': { id: 5 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/../../utils/introspection/./IERC165.sol': { id: 6 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/../../utils/introspection/ERC165.sol': { id: 7 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/../../utils/introspection/IERC165.sol': { id: 8 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./../../utils/introspection/IERC165.sol': { id: 9 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./IERC721.sol': { id: 10 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./IERC721Receiver.sol': { id: 11 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./extensions/../../../utils/introspection/IERC165.sol': { id: 12 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./extensions/../IERC721.sol': { id: 13 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./extensions/IERC721Metadata.sol': { id: 14 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/./utils/introspection/IERC165.sol': { id: 15 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol': { id: 16 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol': { id: 17 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol': { id: 18 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../../../utils/Address.sol': { id: 19 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../../../utils/Context.sol': { id: 20 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../../../utils/Strings.sol': { id: 21 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../../../utils/introspection/./IERC165.sol': { id: 22 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../../../utils/introspection/ERC165.sol': { id: 23 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../../../utils/introspection/IERC165.sol': { id: 24 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././../../utils/introspection/IERC165.sol': { id: 25 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././IERC721.sol': { id: 26 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././IERC721Receiver.sol': { id: 27 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././extensions/../../../utils/introspection/IERC165.sol': { id: 28 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././extensions/../IERC721.sol': { id: 29 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././extensions/IERC721Metadata.sol': { id: 30 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/.././utils/introspection/IERC165.sol': { id: 31 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../ERC721.sol': { id: 32 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../IERC721.sol': { id: 33 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../IERC721Receiver.sol': { id: 34 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/../extensions/IERC721Metadata.sol': { id: 35 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol': { id: 36 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol': { id: 37 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/extensions/utils/introspection/IERC165.sol': { id: 38 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/utils/Address.sol': { id: 39 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/utils/Context.sol': { id: 40 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/utils/Strings.sol': { id: 41 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/utils/introspection/ERC165.sol': { id: 42 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/ERC721/utils/introspection/IERC165.sol': { id: 43 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/token/utils/introspection/IERC165.sol': { id: 44 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/utils/Address.sol': { id: 45 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/utils/Context.sol': { id: 46 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/utils/Counters.sol': { id: 47 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/utils/Strings.sol': { id: 48 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol': { id: 49 },
+    '/home/victorf/projects/ABI-NFT/mintNFT/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol': { id: 50 },
+    '@openzeppelin/contracts/access/Ownable.sol': { id: 51 },
+    '@openzeppelin/contracts/token/ERC721/ERC721.sol': { id: 52 },
+    '@openzeppelin/contracts/token/ERC721/IERC721.sol': { id: 53 },
+    '@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol': { id: 54 },
+    '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol': { id: 55 },
+    '@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol': { id: 56 },
+    '@openzeppelin/contracts/utils/Address.sol': { id: 57 },
+    '@openzeppelin/contracts/utils/Context.sol': { id: 58 },
+    '@openzeppelin/contracts/utils/Counters.sol': { id: 59 },
+    '@openzeppelin/contracts/utils/Strings.sol': { id: 60 },
+    '@openzeppelin/contracts/utils/introspection/ERC165.sol': { id: 61 },
+    '@openzeppelin/contracts/utils/introspection/IERC165.sol': { id: 62 }
+  }
+}
