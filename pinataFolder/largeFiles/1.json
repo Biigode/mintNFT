@@ -1,1 +1,19 @@
-{"dna":"010101000003000103","name":"#1","description":"Moralis Mutants - Survivors of Rekt City","image":"YOUR_MORALIS_SERVER_URL","edition":1,"date":1657913945141,"attributes":[{"name":"Mutant-Background-colour#10","rarity":"original"},{"name":"Mutant-Base-Torso-2#10","rarity":"original"},{"name":"Mutant-Base-Head-2#10","rarity":"original"},{"name":"Mutant-Mc-Shirt#10","rarity":"original"},{"name":"Mutant-Tentacle-Arms#10","rarity":"original"},{"name":"Mutant-Tongue#10","rarity":"original"},{"name":"Mutant-High-Eyes#10","rarity":"original"},{"name":"Mutant-Flames#10","rarity":"original"},{"name":"Mutant-Fly#10","rarity":"original"}]}
+{
+  "dna": "010101000003000103",
+  "name": "#1",
+  "description": "Moralis Mutants - Survivors of Rekt City",
+  "image": "YOUR_MORALIS_SERVER_URL",
+  "edition": 1,
+  "date": 1657913945141,
+  "attributes": [
+    { "name": "Mutant-Background-colour#10", "rarity": "original" },
+    { "name": "Mutant-Base-Torso-2#10", "rarity": "original" },
+    { "name": "Mutant-Base-Head-2#10", "rarity": "original" },
+    { "name": "Mutant-Mc-Shirt#10", "rarity": "original" },
+    { "name": "Mutant-Tentacle-Arms#10", "rarity": "original" },
+    { "name": "Mutant-Tongue#10", "rarity": "original" },
+    { "name": "Mutant-High-Eyes#10", "rarity": "original" },
+    { "name": "Mutant-Flames#10", "rarity": "original" },
+    { "name": "Mutant-Fly#10", "rarity": "original" }
+  ]
+}
